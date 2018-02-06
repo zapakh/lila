@@ -92,6 +92,12 @@ final class Env(
   lazy val stream = new GameStream(system)
 
   lazy val bestOpponents = new BestOpponents
+
+  def cli = new lila.common.Cli {
+    def process = {
+      case "stream" :: "test" :: Nil => StreamTest.start
+    }
+  }
 }
 
 object Env {
