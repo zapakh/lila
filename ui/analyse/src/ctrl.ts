@@ -211,7 +211,8 @@ export default class AnalyseCtrl {
   }
 
   bottomColor(): Color {
-    return this.flipped ? opposite(this.data.orientation) : this.data.orientation;
+    if (this.data.game.variant.key === 'racingKings') return this.flipped ? 'black' : 'white'
+    else return this.flipped ? opposite(this.data.orientation) : this.data.orientation;
   }
 
   bottomIsWhite = () => this.bottomColor() === 'white';
